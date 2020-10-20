@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" context="width-device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- BOOTSTRAP CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	
+		
+</head>
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+  <div class="container">
+  <br>
+  <h3>Main Dashboard</h3>
+  <hr>
+  <h4>Current Provinces</h4>
+  <div class="row">
+  	<div class="col-md-6">
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Name</th>
+				<th>Districts</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="aProvince : ${provinceList}">
+			<td th:text= "${aProvince.name}"/>
+			<td th:text= "${aProvince.districts}"/>
+		</tr>
+		</tbody>
+	</table>
+  	</div>
+  
+  </div>
+  
+  <br>
+  
+  <h4>Current Parents</h4>
+  <div class="row">
+  	<div class="col-md-6">
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>National Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="aParent : ${parentList}">
+			<td th:text= "${aParent.nationalId}"/>
+			<td th:text= "${aParent.firstName}"/>
+			<td th:text= "${aParent.lastName}"/>
+			<td th:text= "${aParent.email}"/>
+			<td th:text= "${aParent.phone}"/>
+		</tr>
+		</tbody>
+	</table>
+  	</div>
+  </div>
+  
+  <br>
+  
+  <h4>Current Children</h4>
+  <div class="row">
+  	<div class="col-md-12">
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Gender</th>
+				<th>DOB</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="aChild : ${childList}">
+			<td th:text= "${aChild.firstName}"/>
+			<td th:text= "${aChild.lastName}"/>
+			<td th:text= "${aChild.gender}"/>
+			<td th:text= "${aChild.dob}"/>
+		</tr>
+		</tbody>
+	</table>
+  	</div>
+  </div>
+ </div>
+ 
+ <br>
+
+</body>

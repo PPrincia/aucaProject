@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymleaf.org">
+
+<nav th:replace="layouts :: header"></nav>
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+<br>
+	<div class="container">
+		<form th:action="@{/parents/save}"  th:object="${parent}" method="POST">
+		
+		<div class="form-group row">
+		<input type="text" placeholder="National Id" th:field="${parent.nationalId}">
+		</div>
+		<div class="form-group row">
+		<input type="text" placeholder="First Name" th:field="${parent.firstName}">
+		</div>
+		<div class="form-group row">
+		<input type="text" placeholder="Last Name" th:field="${parent.lastName}">
+		</div>
+		<div class="form-group row">
+		<input type="text" placeholder="Email" th:field="${parent.email}">
+		</div>
+		<div class="form-group row">
+		<input type="text" placeholder="Phone" th:field="${parent.phone}">
+		</div>
+		
+		
+		<div class="form-group row">
+		<select th:field="*{sector}">
+			<option th:each = "sector : ${allSectors}"
+					th:value = "${sector.id}"
+					th:text = "${sector.name}">
+			
+			</option>
+		</select>
+		</div>
+		
+		<button class="btn btn-info col-2" type="submit">Enter Parent</button>
+		
+		</form>
+	</div>
+</body>

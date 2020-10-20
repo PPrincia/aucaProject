@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymleaf.org">
+
+<nav th:replace="layouts :: header"></nav>
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+	<div class="container">
+		<h3>Children  Directory</h3>
+		<hr>
+		
+		<!-- Add new employee button -->
+		<a th:href="@{projects/new}"
+		   class="btn btn-primary btn-sm mb-3">
+		   		New child
+		</a>
+		<br>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Gender</th>
+					<th>DOB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aChild: ${allChildren}">
+					<td th:text= "${aChild.firstName}"/>
+					<td th:text= "${aChild.lastName}"/>
+					<td th:text= "${aChild.gender}"/>
+					<td th:text= "${aChild.dob}"/>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>

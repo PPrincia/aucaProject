@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymleaf.org">
+
+<nav th:replace="layouts :: header"></nav>
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+	<div class="container">
+		<h3>Provinces  Directory</h3>
+		<hr>
+		
+		<!-- Add new employee button -->
+		<a th:href="@{projects/new}"
+		   class="btn btn-primary btn-sm mb-3">
+		   		New Province
+		</a>
+		<br>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aProvince: ${allProvinces}">
+					<td th:text= "${aProvince.name}"/>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
